@@ -18,7 +18,7 @@ export default function Banner() {
             A passionate <span className="text-white font-bold">Web Designer</span> based in <strong>Bangladesh</strong>
           </p>
           <a href="#contact">
-            <button className="mt-6 px-6 py-3 bg-gradient-to-r from-[#8C2266] to-[#e100ff] hover:from-[#e100ff] hover:to-[#8C2266] text-white rounded-full shadow-lg transition-all duration-300 animate-bounce hover:scale-105">
+            <button id='Contact'  className="mt-6 px-6 py-3 bg-gradient-to-r from-[#8C2266] to-[#e100ff] hover:from-[#e100ff] hover:to-[#8C2266] text-white rounded-full shadow-lg transition-all duration-300 animate-bounce hover:scale-105">
               Work with Me ↗
             </button>
           </a>
