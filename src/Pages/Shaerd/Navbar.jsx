@@ -84,7 +84,7 @@ const Navbar = () => {
                 icon: <FaLinkedin />,
                 hover: "hover:text-[#0A66C2]",
               }, {
-                href: "https://github.com/ashikqulislamrizvi",
+                href: "https://github.com/Ashikqul",
                 icon: <FaGithub />,
                 hover: "hover:text-gray-400",
               }].map((item, i) => (
