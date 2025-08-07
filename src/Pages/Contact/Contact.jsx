@@ -31,7 +31,8 @@ const Contact = () => {
               <span className="text-pink-500 text-2xl">📞</span>
               <div>
                 <p className="font-bold">Call us</p>
-                <p className="text-gray-400">Mon-Fri 8am to 5pm, +65 (555) 000-0000</p>
+                <p className="text-gray-400">Sat-Thu 8am to 5pm, +8801533789608</p>
+
               </div>
             </div>
           </div>
