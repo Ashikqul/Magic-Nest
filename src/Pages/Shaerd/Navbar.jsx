@@ -80,7 +80,7 @@ const Navbar = () => {
                 icon: <FaInstagram />,
                 hover: "hover:text-pink-500",
               }, {
-                href: "https://www.linkedin.com/in/sheikh-ashiqul-islam-rizvi/",
+                href: "https://www.linkedin.com/in/sheikh-ashiqul-islam-%F0%9F%9F%A2-%F0%9F%91%A8%E2%80%8D%F0%9F%92%BB-1167a0280/",
                 icon: <FaLinkedin />,
                 hover: "hover:text-[#0A66C2]",
               }, {
