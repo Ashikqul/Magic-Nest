@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import cvFile from "../../assets/Ashikqul.pdf";
 import MagicNest from "../../assets/MagicNest.mp4";
 
+// Animation variant for fade-in-up effect
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
   visible: (i = 1) => ({
@@ -27,15 +28,16 @@ const About = () => {
           animate="visible"
           variants={fadeInUp}
         >
-        <motion.video
-  src={MagicNest}
-  autoPlay
-  muted
-  loop
-  playsInline
-  className="rounded-full w-48 h-48 object-cover shadow-lg mr-4"
-  variants={fadeInUp}
-/>
+          <motion.video
+            src={MagicNest}
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="rounded-full w-48 h-48 object-cover shadow-lg mr-4"
+            variants={fadeInUp}
+            aria-label="Profile animation"
+          />
           <motion.h2
             className="mt-6 text-xl font-semibold text-pink-500 uppercase"
             variants={fadeInUp}
@@ -53,7 +55,7 @@ const About = () => {
           <motion.a
             href={cvFile}
             download="ashikqul-cv.pdf"
-            className="mt-6 inline-block bg-pink-600 hover:bg-pink-700 text-white px-6 py-2 rounded shadow"
+            className="mt-6 inline-block bg-pink-600 hover:bg-pink-700 text-white px-6 py-2 rounded shadow transition"
             variants={fadeInUp}
             custom={3}
           >
@@ -77,11 +79,10 @@ const About = () => {
               <span className="text-[#6960F7]">Nest</span>
             </h1>
             <p className="mt-4 text-gray-300 max-w-xl">
-              Hello! I’m Sheikh Ashikqul Islam, a passionate and creative frontend
-              developer. I specialize in building responsive and interactive websites
-              using modern technologies like React.js, Tailwind CSS, and more.
-              I love crafting user-friendly experiences and solving real-world
-              problems through clean and efficient code.
+              Hello! I’m Sheikh Ashikqul Islam, a passionate and creative frontend developer.
+              I specialize in building responsive and interactive websites using modern technologies
+              like React.js, Tailwind CSS, and more. I love crafting user-friendly experiences and
+              solving real-world problems through clean and efficient code.
             </p>
           </motion.div>
 
@@ -92,18 +93,18 @@ const About = () => {
           >
             <div>
               <p>
-                <strong>Phone: </strong> +8801533789608
+                <strong>Phone:</strong> +8801533789608
               </p>
               <p>
-                <strong>Email: </strong> ashikqulislamrizvi77@gmail.com
+                <strong>Email:</strong> ashikqulislamrizvi77@gmail.com
               </p>
             </div>
             <div>
               <p>
-                <strong>Name: </strong> Sheikh Ashikqul Islam
+                <strong>Name:</strong> Sheikh Ashikqul Islam
               </p>
               <p>
-                <strong>Location: </strong> Khulna, Bangladesh
+                <strong>Location:</strong> Khulna, Bangladesh
               </p>
             </div>
           </motion.div>
@@ -149,8 +150,7 @@ const About = () => {
             <h2 className="text-3xl font-extrabold">My Experience</h2>
             <p className="text-gray-300 leading-relaxed">
               I’ve worked with real estate, beauty, and eCommerce brands, delivering
-              frontend and digital marketing solutions that drive engagement and
-              growth.
+              frontend and digital marketing solutions that drive engagement and growth.
             </p>
           </motion.div>
 
@@ -160,7 +160,7 @@ const About = () => {
             custom={2}
           >
             <div>
-              <p className="uppercase text-gray-400 font-semibold">2025- Present</p>
+              <p className="uppercase text-gray-400 font-semibold">2025 - Present</p>
               <h4 className="font-bold">Frontend Developer (Azad Cable Network)</h4>
             </div>
             <div>
@@ -176,41 +176,40 @@ const About = () => {
       </motion.div>
 
       {/* Education Section */}
-     <motion.div
-  className="w-full bg-gradient-to-r from-[#1a1a40] via-[#5e54c6] to-[#9188ff] text-white py-20 px-6"
-  initial="hidden"
-  whileInView="visible"
-  viewport={{ once: true }}
-  variants={fadeInUp}
->
-  <div className="max-w-7xl mx-auto px-6 md:px-20 flex flex-col md:flex-row gap-16">
-    <motion.div className="md:w-1/3 space-y-6" variants={fadeInUp}>
-      <h3 className="uppercase tracking-wide text-xs text-gray-300 font-semibold">
-        Education
-      </h3>
-      <h2 className="text-3xl font-extrabold">My Education</h2>
-      <p className="text-gray-300 leading-relaxed">
-        Formal education and courses that have shaped my skills and career.
-      </p>
-    </motion.div>
+      <motion.div
+        className="w-full bg-gradient-to-r from-[#1a1a40] via-[#5e54c6] to-[#9188ff] text-white py-20 px-6"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={fadeInUp}
+      >
+        <div className="max-w-7xl mx-auto px-6 md:px-20 flex flex-col md:flex-row gap-16">
+          <motion.div className="md:w-1/3 space-y-6" variants={fadeInUp}>
+            <h3 className="uppercase tracking-wide text-xs text-gray-300 font-semibold">
+              Education
+            </h3>
+            <h2 className="text-3xl font-extrabold">My Education</h2>
+            <p className="text-gray-300 leading-relaxed">
+              Formal education and courses that have shaped my skills and career.
+            </p>
+          </motion.div>
 
-    <motion.div
-      className="md:w-2/3 space-y-8 text-sm md:text-base"
-      variants={fadeInUp}
-      custom={2}
-    >
-      <div>
-        <p className="uppercase text-gray-400 font-semibold mb-1">2016 - 2020</p>
-        <h4 className="font-bold text-lg">B.S.S in Govt. Hazi Muhammad Mohsin College</h4>
-        <p className="text-gray-300">Khulna, Bangladesh</p>
-      </div>
-
-      <div>
-        <p className="uppercase text-gray-400 font-semibold mb-1">2024 - 2025</p>
-        <h4 className="font-bold text-lg">Web Development Course</h4>
-        <p className="text-gray-300">Programming Hero</p>
-      </div>
-    </motion.div>
+          <motion.div
+            className="md:w-2/3 space-y-8 text-sm md:text-base"
+            variants={fadeInUp}
+            custom={2}
+          >
+            <div>
+              <p className="uppercase text-gray-400 font-semibold mb-1">2016 - 2020</p>
+              <h4 className="font-bold text-lg">B.S.S in Govt. Hazi Muhammad Mohsin College</h4>
+              <p className="text-gray-300">Khulna, Bangladesh</p>
+            </div>
+            <div>
+              <p className="uppercase text-gray-400 font-semibold mb-1">2024 - 2025</p>
+              <h4 className="font-bold text-lg">Web Development Course</h4>
+              <p className="text-gray-300">Programming Hero</p>
+            </div>
+          </motion.div>
         </div>
       </motion.div>
     </section>
