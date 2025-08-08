@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import cvFile from "../../assets/Ashikqul.pdf (1).pdf (1).pdf";
+import MagicNest from "../../assets/MagicNest.mp4";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
@@ -26,12 +27,15 @@ const About = () => {
           animate="visible"
           variants={fadeInUp}
         >
-          <motion.img
-            src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.webp"
-            alt="Ashikqul Islam"
-            className="rounded-full w-48 h-48 object-cover shadow-lg mr-4"
-            variants={fadeInUp}
-          />
+        <motion.video
+  src={MagicNest}
+  autoPlay
+  muted
+  loop
+  playsInline
+  className="rounded-full w-48 h-48 object-cover shadow-lg mr-4"
+  variants={fadeInUp}
+/>
           <motion.h2
             className="mt-6 text-xl font-semibold text-pink-500 uppercase"
             variants={fadeInUp}
