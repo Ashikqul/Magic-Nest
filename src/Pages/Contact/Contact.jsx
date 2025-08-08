@@ -107,49 +107,49 @@ const Contact = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <h3 className="text-3xl font-bold mb-4">Got Ideas? We’ve Got the Skills.</h3>
-          <p className="text-white/80 text-sm mb-8">
-            Tell us more about yourself and what you’ve got in mind.
-          </p>
+       <h3 className="text-3xl font-bold mb-4">Have a Project in Mind? Let's Bring It to Life.</h3>
+<p className="text-white/80 text-sm mb-8">
+  Share your ideas, project details, or any questions you have. We're here to help build your perfect frontend solution.
+</p>
 
-          <form ref={form} onSubmit={sendEmail} className="space-y-5">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <input
-                type="text"
-                name="name"
-                placeholder="Your Name*"
-                className="p-3 rounded-lg bg-white text-black w-full outline-none focus:ring-2 focus:ring-pink-400"
-                required
-              />
-              <input
-                type="email"
-                name="email"
-                placeholder="Your Email*"
-                className="p-3 rounded-lg bg-white text-black w-full outline-none focus:ring-2 focus:ring-pink-400"
-                required
-              />
-            </div>
-            <input
-              type="text"
-              name="subject"
-              placeholder="Subject*"
-              className="p-3 rounded-lg bg-white text-black w-full outline-none focus:ring-2 focus:ring-pink-400"
-              required
-            />
-            <textarea
-              name="message"
-              rows="5"
-              placeholder="Your Message*"
-              className="p-3 rounded-lg bg-white text-black w-full outline-none focus:ring-2 focus:ring-pink-400"
-              required
-            ></textarea>
-            <button
-              type="submit"
-              className="bg-black text-white py-3 px-8 rounded-lg hover:bg-white hover:text-black transition-all font-bold shadow-lg"
-            >
-              Send Message
-            </button>
-          </form>
+           <form ref={form} onSubmit={sendEmail} className="space-y-5 max-w-xl mx-auto p-5 bg-pink-700 rounded-lg">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <input
+          type="text"
+          name="name"
+          placeholder="Your Name*"
+          className="p-3 rounded-lg bg-[#AA2574] text-white w-full outline-none focus:ring-2 focus:ring-pink-400"
+          required
+        />
+        <input
+          type="email"
+          name="email"
+          placeholder="Your Email*"
+          className="p-3 rounded-lg bg-[#AA2574] text-white w-full outline-none focus:ring-2 focus:ring-pink-400"
+          required
+        />
+      </div>
+      <input
+        type="text"
+        name="subject"
+        placeholder="Subject*"
+        className="p-3 rounded-lg bg-[#AA2574] text-white w-full outline-none focus:ring-2 focus:ring-pink-400"
+        required
+      />
+      <textarea
+        name="message"
+        rows="5"
+        placeholder="Your Message*"
+        className="p-3 rounded-lg bg-[#AA2574] text-white w-full outline-none focus:ring-2 focus:ring-pink-400"
+        required
+      ></textarea>
+      <button
+        type="submit"
+        className="bg-black text-white py-3 px-8 rounded-lg hover:bg-white hover:text-black transition-all font-bold shadow-lg"
+      >
+        Send Message
+      </button>
+    </form>
         </motion.div>
       </div>
 

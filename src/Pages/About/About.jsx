@@ -73,7 +73,7 @@ const About = () => {
               <span className="text-[#6960F7]">Nest</span>
             </h1>
             <p className="mt-4 text-gray-300 max-w-xl">
-              Hello! I’m Ashikqul Islam Rizvi, a passionate and creative frontend
+              Hello! I’m Sheikh Ashikqul Islam, a passionate and creative frontend
               developer. I specialize in building responsive and interactive websites
               using modern technologies like React.js, Tailwind CSS, and more.
               I love crafting user-friendly experiences and solving real-world
@@ -172,41 +172,41 @@ const About = () => {
       </motion.div>
 
       {/* Education Section */}
-      <motion.div
-       className="w-full bg-gradient-to-r from-[#1a1a40] via-[#5e54c6] to-[#9188ff] text-white py-20 px-6"
+     <motion.div
+  className="w-full bg-gradient-to-r from-[#1a1a40] via-[#5e54c6] to-[#9188ff] text-white py-20 px-6"
+  initial="hidden"
+  whileInView="visible"
+  viewport={{ once: true }}
+  variants={fadeInUp}
+>
+  <div className="max-w-7xl mx-auto px-6 md:px-20 flex flex-col md:flex-row gap-16">
+    <motion.div className="md:w-1/3 space-y-6" variants={fadeInUp}>
+      <h3 className="uppercase tracking-wide text-xs text-gray-300 font-semibold">
+        Education
+      </h3>
+      <h2 className="text-3xl font-extrabold">My Education</h2>
+      <p className="text-gray-300 leading-relaxed">
+        Formal education and courses that have shaped my skills and career.
+      </p>
+    </motion.div>
 
+    <motion.div
+      className="md:w-2/3 space-y-8 text-sm md:text-base"
+      variants={fadeInUp}
+      custom={2}
+    >
+      <div>
+        <p className="uppercase text-gray-400 font-semibold mb-1">2016 - 2020</p>
+        <h4 className="font-bold text-lg">B.S.S in Govt. Hazi Muhammad Mohsin College</h4>
+        <p className="text-gray-300">Khulna, Bangladesh</p>
+      </div>
 
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        variants={fadeInUp}
-      >
-        <div className="max-w-7xl mx-auto px-6 md:px-20 flex flex-col md:flex-row gap-16">
-          <motion.div className="md:w-1/3 space-y-6" variants={fadeInUp}>
-            <h3 className="uppercase tracking-wide text-xs text-gray-300 font-semibold">
-              Education
-            </h3>
-            <h2 className="text-3xl font-extrabold">My Education</h2>
-            <p className="text-gray-300 leading-relaxed">
-              Formal education and courses that have shaped my skills and career.
-            </p>
-          </motion.div>
-
-          <motion.div
-            className="md:w-2/3 space-y-8 text-sm md:text-base"
-            variants={fadeInUp}
-            custom={2}
-          >
-            <div>
-              <p className="uppercase text-gray-400 font-semibold">2016 - 2020</p>
-              <h4 className="font-bold">B.S.S in Govt. Hazi Muhammad Mohsin College</h4>
-              <h4>Khulna Bangladesh</h4>
-            </div>
-           <div>
-  <p className="uppercase text-gray-400 font-semibold">2024-2025</p>
-  <h4 className="font-bold">Web Development Course - Programming Hero</h4>
-</div>
-          </motion.div>
+      <div>
+        <p className="uppercase text-gray-400 font-semibold mb-1">2024 - 2025</p>
+        <h4 className="font-bold text-lg">Web Development Course</h4>
+        <p className="text-gray-300">Programming Hero</p>
+      </div>
+    </motion.div>
         </div>
       </motion.div>
     </section>
