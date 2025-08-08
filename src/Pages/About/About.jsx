@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import cvFile from "../../assets/Ashikqul.pdf (1).pdf (1).pdf";
+import cvFile from "../../assets/Ashikqul.pdf";
 import MagicNest from "../../assets/MagicNest.mp4";
 
 const fadeInUp = {
