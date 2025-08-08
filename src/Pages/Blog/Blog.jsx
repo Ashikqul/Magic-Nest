@@ -40,34 +40,78 @@ const blogData = [
   },
 ];
 
+const containerVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { staggerChildren: 0.1, ease: "easeOut" },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 15 },
+  visible: { opacity: 1, y: 0, transition: { ease: "easeOut" } },
+};
+
+const modalVariants = {
+  hidden: { opacity: 0, scale: 0.8 },
+  visible: { opacity: 1, scale: 1, transition: { duration: 0.3, ease: "easeOut" } },
+  exit: { opacity: 0, scale: 0.8, transition: { duration: 0.2, ease: "easeIn" } },
+};
+
+const backdropVariants = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 0.5 },
+  exit: { opacity: 0 },
+};
+
 const Blog = () => {
   const [selectedBlog, setSelectedBlog] = useState(null);
 
-  // Scroll block when modal is open
   useEffect(() => {
-    if (selectedBlog) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
-    }
-    // Cleanup on unmount or change
-    return () => {
-      document.body.style.overflow = "auto";
-    };
+    document.body.style.overflow = selectedBlog ? "hidden" : "auto";
+    return () => (document.body.style.overflow = "auto");
   }, [selectedBlog]);
 
   return (
-    <div id= 'blog'  className="scroll-mt-28 bg-[#0B0922] text-white px-6 lg:pl-80 py-20">
-      <strong><p className="text-fuchsia-500 uppercase mb-2 italic">Our Blogs</p></strong>
-      <h2 className="text-3xl md:text-4xl font-bold mb-10">OUR LATEST UPDATE</h2>
+    <div
+      id="blog"
+      className="scroll-mt-28 bg-[#0B0922] text-white px-6 lg:pl-80 py-20"
+    >
+      <motion.div
+        className="mb-10"
+        initial="hidden"
+        animate="visible"
+        variants={containerVariants}
+      >
+        <motion.p
+          className="text-fuchsia-500 uppercase mb-2 italic font-semibold"
+          variants={itemVariants}
+        >
+          Our Blogs
+        </motion.p>
+        <motion.h2
+          className="text-3xl md:text-4xl font-bold"
+          variants={itemVariants}
+        >
+          OUR LATEST UPDATE
+        </motion.h2>
+      </motion.div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <motion.div
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+      >
         {blogData.map((blog) => (
           <motion.div
             key={blog.id}
             whileHover={{ scale: 1.03 }}
             onClick={() => setSelectedBlog(blog)}
             className="bg-[#1a1a2e] rounded-lg overflow-hidden shadow-lg cursor-pointer py-10"
+            variants={itemVariants}
           >
             <img
               src={blog.image}
@@ -81,24 +125,26 @@ const Blog = () => {
             </div>
           </motion.div>
         ))}
-      </div>
+      </motion.div>
 
       {/* Modal Popup */}
       <AnimatePresence>
         {selectedBlog && (
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0  bg-opacity-50 backdrop-blur-sm flex justify-center items-center p-4 z-[9999]"
+            className="fixed inset-0 bg-black backdrop-blur-sm flex justify-center items-center p-4 z-[9999]"
+            variants={backdropVariants}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
             onClick={() => setSelectedBlog(null)}
           >
             <motion.div
-              initial={{ scale: 0.8 }}
-              animate={{ scale: 1 }}
-              exit={{ scale: 0.8 }}
-              onClick={(e) => e.stopPropagation()}
               className="bg-[#1a1a2e] rounded-lg max-w-4xl w-full max-h-[90vh] overflow-auto p-6 relative"
+              variants={modalVariants}
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+              onClick={(e) => e.stopPropagation()}
             >
               <img
                 src={selectedBlog.image}
@@ -107,7 +153,9 @@ const Blog = () => {
               />
               <h2 className="text-2xl font-bold mb-2">{selectedBlog.title}</h2>
               <p className="text-sm text-gray-400 mb-4">{selectedBlog.date}</p>
-              <p className="text-gray-200 text-sm leading-relaxed">{selectedBlog.content}</p>
+              <p className="text-gray-200 text-sm leading-relaxed">
+                {selectedBlog.content}
+              </p>
               <button
                 onClick={() => setSelectedBlog(null)}
                 className="mt-6 text-fuchsia-400 hover:text-fuchsia-200 underline"
