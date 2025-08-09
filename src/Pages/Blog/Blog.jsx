@@ -60,12 +60,6 @@ const modalVariants = {
   exit: { opacity: 0, scale: 0.8, transition: { duration: 0.2, ease: "easeIn" } },
 };
 
-const backdropVariants = {
-  hidden: { opacity: 0 },
-  visible: { opacity: 0.5 },
-  exit: { opacity: 0 },
-};
-
 const Blog = () => {
   const [selectedBlog, setSelectedBlog] = useState(null);
 
@@ -75,71 +69,81 @@ const Blog = () => {
   }, [selectedBlog]);
 
   return (
-    <div
-      id="blog"
-      className="scroll-mt-28 bg-[#0B0922] text-white px-6 lg:pl-80 py-20"
-    >
-      <motion.div
-        className="mb-10"
-        initial="hidden"
-        animate="visible"
-        variants={containerVariants}
+    <div className="relative">
+      {/* Main blog content with blur when modal is open */}
+      <div
+        id="blog"
+        className={`scroll-mt-28 bg-[#0B0922] text-white px-6 lg:pl-80 py-20 transition-all duration-300 ${
+          selectedBlog ? "filter blur-md" : ""
+        }`}
       >
-        <motion.p
-          className="text-fuchsia-500 uppercase mb-2 italic font-semibold"
-          variants={itemVariants}
+        <motion.div
+          className="mb-10"
+          initial="hidden"
+          animate="visible"
+          variants={containerVariants}
         >
-          Our Blogs
-        </motion.p>
-        <motion.h2
-          className="text-3xl md:text-4xl font-bold"
-          variants={itemVariants}
-        >
-          OUR LATEST UPDATE
-        </motion.h2>
-      </motion.div>
-
-      <motion.div
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-      >
-        {blogData.map((blog) => (
-          <motion.div
-            key={blog.id}
-            whileHover={{ scale: 1.03 }}
-            onClick={() => setSelectedBlog(blog)}
-            className="bg-[#1a1a2e] rounded-lg overflow-hidden shadow-lg cursor-pointer py-10"
+          <motion.p
+            className="text-fuchsia-500 uppercase mb-2 italic font-semibold"
             variants={itemVariants}
           >
-            <img
-              src={blog.image}
-              alt={blog.title}
-              className="w-full h-48 object-cover"
-            />
-            <div className="p-4">
-              <p className="text-gray-400 text-sm mb-1">{blog.date}</p>
-              <h3 className="font-semibold text-lg">{blog.title}</h3>
-              <p className="text-sm text-fuchsia-400 mt-2">Click to read more...</p>
-            </div>
-          </motion.div>
-        ))}
-      </motion.div>
+            Our Blogs
+          </motion.p>
+          <motion.h2
+            className="text-3xl md:text-4xl font-bold"
+            variants={itemVariants}
+          >
+            OUR LATEST UPDATE
+          </motion.h2>
+        </motion.div>
+
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+        >
+          {blogData.map((blog) => (
+            <motion.div
+              key={blog.id}
+              whileHover={{ scale: 1.03 }}
+              onClick={() => setSelectedBlog(blog)}
+              className="bg-[#1a1a2e] rounded-lg overflow-hidden shadow-lg cursor-pointer py-10"
+              variants={itemVariants}
+            >
+              <img
+                src={blog.image}
+                alt={blog.title}
+                className="w-full h-48 object-cover text-white"
+              />
+              <div className="p-4">
+                <p className="text-white text-sm mb-1">{blog.date}</p>
+                <h3 className="font-semibold text-lg">{blog.title}</h3>
+                <p className="text-sm text-fuchsia-400 mt-2">Click to read more...</p>
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
 
       {/* Modal Popup */}
       <AnimatePresence>
         {selectedBlog && (
           <motion.div
-            className="fixed inset-0 bg-black backdrop-blur-sm flex justify-center items-center p-4 z-[9999]"
-            variants={backdropVariants}
+            className="fixed inset-0 flex justify-center items-center p-4 z-[9999]"
             initial="hidden"
             animate="visible"
             exit="exit"
-            onClick={() => setSelectedBlog(null)}
           >
+            {/* Dark transparent background */}
+            <div
+              className="absolute inset-0 bg-black/50"
+              onClick={() => setSelectedBlog(null)}
+            ></div>
+
+            {/* Modal Content */}
             <motion.div
-              className="bg-[#1a1a2e] rounded-lg max-w-4xl w-full max-h-[90vh] overflow-auto p-6 relative"
+              className="bg-[#1a1a2e] rounded-lg max-w-4xl w-full max-h-[90vh] overflow-auto p-6 relative z-10"
               variants={modalVariants}
               initial="hidden"
               animate="visible"
@@ -151,7 +155,7 @@ const Blog = () => {
                 alt={selectedBlog.title}
                 className="w-full object-contain max-h-[40vh] rounded-md mb-4"
               />
-              <h2 className="text-2xl font-bold mb-2">{selectedBlog.title}</h2>
+              <h2 className="text-2xl font-bold mb-2 text-white">{selectedBlog.title}</h2>
               <p className="text-sm text-gray-400 mb-4">{selectedBlog.date}</p>
               <p className="text-gray-200 text-sm leading-relaxed">
                 {selectedBlog.content}
